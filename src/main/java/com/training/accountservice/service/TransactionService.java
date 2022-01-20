@@ -28,12 +28,6 @@ public class TransactionService {
         accountEntity.setBalance(updatedBalance);
         accountRepository.save(accountEntity);
         Transaction response = transactionRepository.save(transactionMapper.toTransaction(transactionDto));
-       /* streamBridge.send("transaction-notification-topic", MessageBuilder
-                .withPayload(TransactionNotificationDto
-                        .builder()
-                        .transactionId(response.getTransactionId())
-                        .build())
-                .build());*/
         return response.getTransactionId();
     }
 }
