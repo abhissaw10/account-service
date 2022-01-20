@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_USERNAME: "accounts"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "accounts"
