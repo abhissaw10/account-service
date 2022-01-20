@@ -26,7 +26,7 @@ jobs:
     - name: Docker Login
       run: |
         echo ${{ secrets.DOCKERHUB_USERNAME }}
-        docker login -u ${{secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_PASSWORD }}
+        docker login -u ${{secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_TOKEN }}
     - name: Docker push
       run: |
         docker push abhissaw/account-service:latest
