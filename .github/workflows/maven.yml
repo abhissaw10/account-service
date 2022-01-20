@@ -22,11 +22,10 @@ jobs:
     - name: Build with Maven
       run: ./mvnw clean package
     - name: Build docker image
-      run: ./mvnw spring-boot:build-image -Dspring-boot.boot-image.imageName=abhissaw/account-service
+      run: ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=abhissaw/account-service
     - name: Docker Login
       run: |
-        echo ${{ secrets.DOCKERHUB_USERNAME }}
-        docker login -u ${{secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_PASSWORD }}
+        docker login -u ${{secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_TOKEN }}
     - name: Docker push
       run: |
         docker push abhissaw/account-service:latest
